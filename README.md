@@ -36,7 +36,7 @@ Source the rootfs creator for your target plaform, Default OS is Ubuntu 18.04 LT
     $ source cookers/env.bash.imx7.terminal
 
     For IMX7 with Ubuntu XFCE Desktop
-    $ source cookers/env.bash.imx8.xfce
+    $ source cookers/env.bash.imx7.xfce
 
 Copy your compiled Linux Kernel moduels to fs_overlay folder (recommended):
 
