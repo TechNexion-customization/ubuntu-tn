@@ -37,3 +37,12 @@ gen_pure_rootfs() {
   cd ${TOP}
   rm -rf ${TOP}/tn_install.sh
 }
+
+merge_tn_fs_overlay() {
+  wget -c -t 0 --timeout=60 --waitretry=60 https://github.com/technexion-android/android_restricted_extra/raw/master/imx6_7-bionic.tar.gz
+  tar zxvf imx6_7-bionic.tar.gz
+  mv ${TOP}/fs_overlay ${TOP}/cookers/
+  rm -rf ${TOP}/imx6_7-bionic.tar.gz
+  rm -rf ${TOP}/fs_overlay
+}
+
