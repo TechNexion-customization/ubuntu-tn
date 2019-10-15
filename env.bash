@@ -46,3 +46,8 @@ merge_tn_fs_overlay() {
   rm -rf ${TOP}/fs_overlay
 }
 
+throw_rootfs() {
+  sudo swapoff ${TOP}/rootfs/swapfile
+  sudo rm -rf ${TOP}/rootfs/
+  sudo rm rootfs.tgz
+}
