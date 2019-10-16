@@ -33,9 +33,8 @@ swapon /swapfile
 
 # GUI desktop support
 if [[ "$1" == "gui" ]];then
-yes "Y" | apt install xfce4 lightdm onboard glmark2 xterm xfce4-screenshooter rfkill
-packages=$(awk 'BEGIN { ORS = " " } { print }' apt_list)
-yes "Y" | apt install /usr/bin/$packages
+yes "Y" | apt install xfce4 lightdm onboard glmark2 xterm xfce4-screenshooter rfkill alsa-utils ubuntu-restricted-extras
+yes "Y" | apt install $(awk 'BEGIN { ORS = " " } { print }' /usr/bin/apt_list)
 
 yes "Y" | apt remove xscreensaver gnome-terminal
 yes "Y" | apt-get autoremove
