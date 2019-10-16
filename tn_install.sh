@@ -25,7 +25,7 @@ sudo apt-get update
 yes "Y" | apt install openssh-server iw wpasupplicant hostapd util-linux procps iproute2 haveged dnsmasq iptables net-tools bluez ppp ntp ntpdate bridge-utils
 yes "Y" | apt install bash-completion
 
-echo "${COL_GREEN}Add swap partition...Default size is 1GB${COL_NORMAL}"
+echo "${COL_GREEN}Add swap partition...Default size is 256MB${COL_NORMAL}"
 dd if=/dev/zero of=/swapfile bs=1M count=256
 chmod 600 /swapfile
 mkswap /swapfile
