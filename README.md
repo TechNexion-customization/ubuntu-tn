@@ -201,3 +201,74 @@ Note that some resolution of screen may not show the save item(too small), pleas
 
 After reboot, the hotspot already works! the user can connect it via smart phone, notebook or other devices.
 ![ap-5](images/ap-5.png)
+
+## How to expand the system partition to full eMMC size
+--------
+
+Please issue commands After boot up (both okay using debug console or in XFCE terminal):
+
+
+    ubuntu@technexion:~/mnt/test_video$ sudo fdisk /dev/mmcblk2
+
+    Welcome to fdisk (util-linux 2.31.1).
+    Changes will remain in memory only, until you decide to write them.
+    Be careful before using the write command.
+
+    Command (m for help): p
+    Disk /dev/mmcblk2: 14.6 GiB, 15678308352 bytes, 30621696 sectors
+    Units: sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disklabel type: dos
+    Disk identifier: 0x567639dc
+
+    Device         Boot Start     End Sectors  Size Id Type
+    /dev/mmcblk2p1       8192   49151   40960   20M  c W95 FAT32 (LBA)
+    /dev/mmcblk2p2      49152 5169151 5120000  2.5G 83 Linux
+
+Remember the start sector in partition 2, then delete partition 2 as following parameters:
+
+    Command (m for help): d
+    Partition number (1,2, default 2): 2
+
+    Partition 2 has been deleted.
+
+Create partition 2 again, and input the correct start sectors, note that the end sector just press 'enter' key, then press 'w' to save the new configuration:
+
+    Command (m for help): n
+    Partition type
+        p   primary (1 primary, 0 extended, 3 free)
+        e   extended (container for logical partitions)
+    Select (default p):
+
+    Using default response p.
+    Partition number (2-4, default 2):
+    First sector (2048-30621695, default 2048): 49152
+    Last sector, +sectors or +size{K,M,G,T,P} (49152-30621695, default 30621695):
+
+    Created a new partition 2 of type 'Linux' and of size 14.6 GiB.
+    Partition #2 contains a ext4 signature.
+
+    Do you want to remove the signature? [Y]es/[N]o: Y
+
+    The signature will be removed by a write command.
+
+    Command (m for help): p
+    Disk /dev/mmcblk2: 14.6 GiB, 15678308352 bytes, 30621696 sectors
+    Units: sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disklabel type: dos
+    Disk identifier: 0x567639dc
+
+    Device         Boot Start      End  Sectors  Size Id Type
+    /dev/mmcblk2p1       8192    49151    40960   20M  c W95 FAT32 (LBA)
+    /dev/mmcblk2p2      49152 30621695 30572544 14.6G 83 Linux
+
+    Filesystem/RAID signature on partition 2 will be wiped.
+
+    Command (m for help): w
+    The partition table has been altered.
+    Syncing disks.
+
+It works, please reboot the system and check the partition 2 size, it should be chagned.
