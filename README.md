@@ -272,3 +272,18 @@ Create partition 2 again, and input the correct start sectors, note that the end
     Syncing disks.
 
 It works, please reboot the system and check the partition 2 size, it should be chagned.
+
+## How to enabling the 3G/4G mobile communication function on XFCE Network-Manager
+--------
+
+Prepare a CDMA type or LTE type modules, and click onto our mini PCIE or M.2 connector of baseboard.
+
+Then following the steps as below pictures, very easy way!
+
+![lte-1](images/lte-1.png)
+![lte-2](images/lte-2.png)
+![lte-3](images/lte-3.png)
+![lte-4](images/lte-4.png)
+![lte-5](images/lte-5.png)
+![lte-6](images/lte-6.png)
+![lte-7](images/lte-7.png)
