@@ -16,7 +16,7 @@ General Packages Installation ( Ubuntu 16.04 or above)
 
 
 ## Starting create custom rootfs
---------
+ --------
 
 Create a workspace folder then download Technexion Ubuntu Rootfs Creator:
 
@@ -295,3 +295,28 @@ Note that disable PIN password as default configuration is recommended.
 ![lte-5](images/lte-5.png)
 ![lte-6](images/lte-6.png)
 ![lte-7](images/lte-7.png)
+
+## How to making a custom ubuntu image and flash to eMMC/SD
+--------
+
+When you done the ubuntu rootfs generation, you'll see a tarball file rootfs.tgz in the root folder of source code, then compile the u-boot image, kernel image, and device tree files using Techenxion repos from https://github.com/TechNexion.
+
+About how to mount the eMMC to host PC, we provide three ways:
+
+Method 1. MFGTOOL: legacy way, detail instruction inside the package as following link already.
+
+    ftp://ftp.technexion.net/development_resources/development_tools/installer/pico-imx7-imx6ul-imx6ull_otg-installer_20170112.zip
+
+Method 2. UUU: modular way, detail instruction as following link:
+
+    https://github.com/TechNexion/u-boot-tn-imx/wiki/Use-mfgtool-%22uuu%22-to-flash-eMMC
+
+Method 3. UMS: fast way, Another modular way is use ums command on your currect u-boot inside the eMMC, connect the USB OTG cable to host PC, then ums will auto mounting a storage on host PC, ums command as following:
+
+    # ums 0 mmc 0 (mmc device number is up to your board, you can choose to 1 if 0 is not work)
+
+Remember the ums is no need change the boot mode, but the disadvangage is the flash speed is slower than mfgtool way, so we recommend the mfgtool is better.
+
+Technexion Ubuntu image was Separated two partitions, one is boot partition(first partition), another one is rootfs partition, so put u-boot image, kernel image, and device tree blob files to boot partiton first(maybe also need uEnv.txt for specific bootargs), in the end, extract roofs.tgz to rootfs partition.
+
+That's it, enjoy!
