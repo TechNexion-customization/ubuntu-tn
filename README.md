@@ -273,7 +273,7 @@ Create partition 2 again, and input the correct start sectors, note that the end
 
 It works, please reboot the system and check the partition 2 size, it should be chagned.
 
-## How to enabling the 3G/4G mobile communication function on XFCE Network-Manager
+## How to enabling the 3G/4G mobile function on XFCE Network-Manager
 --------
 
 Prepare a CDMA type or LTE type modules, and click onto our mini PCIE or M.2 connector of baseboard.
@@ -283,7 +283,9 @@ Then following the steps as below pictures, very easy way!
 Example:
 
 Country: Taiwan
+
 SIM card Provider: Chunghwa Telecom
+
 Note that disable PIN password as default configuration is recommended.
 
 ![lte-1](images/lte-1.png)
