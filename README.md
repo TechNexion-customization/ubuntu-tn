@@ -280,6 +280,12 @@ Prepare a CDMA type or LTE type modules, and click onto our mini PCIE or M.2 con
 
 Then following the steps as below pictures, very easy way!
 
+Example:
+
+Country: Taiwan
+SIM card Provider: Chunghwa Telecom
+Note that disable PIN password as default configuration is recommended.
+
 ![lte-1](images/lte-1.png)
 ![lte-2](images/lte-2.png)
 ![lte-3](images/lte-3.png)
