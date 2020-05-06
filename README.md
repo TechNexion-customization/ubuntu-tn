@@ -303,7 +303,7 @@ When you done the ubuntu rootfs generation, you'll see a tarball file rootfs.tgz
 
 About how to mount the eMMC to host PC, we provide three ways:
 
-Method 1. MFGTOOL: legacy way, detail instruction inside the package as following link already.
+Method 1. MFGTOOL: legacy way, detail instruction inside the package as following link already (recommended).
 
     ftp://ftp.technexion.net/development_resources/development_tools/installer/pico-imx7-imx6ul-imx6ull_otg-installer_20170112.zip
 
@@ -317,6 +317,6 @@ Method 3. UMS: fast way, Another modular way is use ums command on your currect 
 
 Remember the ums is no need change the boot mode, but the disadvangage is the flash speed is slower than mfgtool way, so we recommend the mfgtool is better.
 
-Technexion Ubuntu image was Separated two partitions, one is boot partition(first partition), another one is rootfs partition, so put u-boot image, kernel image, and device tree blob files to boot partiton first(maybe also need uEnv.txt for specific bootargs), in the end, extract roofs.tgz to rootfs partition.
+Technexion Ubuntu image was Separated two partitions, one is boot partition(first partition), another one is rootfs partition, so put u-boot image, kernel image, and device tree blob files to boot partiton first(maybe also need uEnv.txt for specific bootargs), in the end, extract roofs.tgz to rootfs partition, don't forgot copy your kernel modules to the rootfs partition as following path: rootfs/lib/modules/
 
 That's it, enjoy!
